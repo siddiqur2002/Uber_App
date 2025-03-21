@@ -1,5 +1,6 @@
 const userModel = require('../models/user.model');
 
+// Creation of user for register and login setup....
 
 module.exports.createUser = async ({
     firstName, lastName, email, password
@@ -19,3 +20,7 @@ module.exports.createUser = async ({
 
     return user;
 }
+
+// creating user done here for register and login........
+
+

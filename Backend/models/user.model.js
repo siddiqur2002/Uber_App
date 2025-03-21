@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
+// creation of user model to register and login setup for user in database..........
 
 const userSchema = new mongoose.Schema({
     fullName: {
@@ -32,8 +33,10 @@ const userSchema = new mongoose.Schema({
 })
 
 
+// generateAuthToken(), comparePassword(), hashPassword() are made for user auth when user trying to register and login....
+
 userSchema.methods.generateAuthToken = function () {
-    const token = jwt.sign({ _id: this._id }, process.env.JWT_SECRET)
+    const token = jwt.sign({ _id: this._id }, process.env.JWT_SECRET, { expiresIn: '24h' });
 
     return token;
 }
